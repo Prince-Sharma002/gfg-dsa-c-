@@ -28,7 +28,7 @@ int main() {
     
 }
 ```
-
+### apply cyclic sort for 0 to n 
 
 
 
