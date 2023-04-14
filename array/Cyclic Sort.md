@@ -10,7 +10,7 @@ int main() {
     int n = sizeof(arr)/sizeof(arr[0]);
     int i=0;
     int index;
-    while( i < n-1 ){
+    while( i < n ){
         if( arr[i] != i+1 ){
             index = arr[i] - 1;
             swap( arr[i] , arr[index] );
