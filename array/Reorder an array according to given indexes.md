@@ -34,10 +34,34 @@ int main() {
 
 
 
+## BruteForce
+```
+int main() {
+    
+    // Input:  arr[]   = [50, 40, 70, 60, 90]
+    // index[] = [3,  0,  4,  1,  2]
+    // TC - 0(N) , SC -0(N)
+    
+    int arr[] = { 50, 40, 70, 60, 90 };
+    int index[] = { 3,  0,  4,  1,  2 };
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int temp[n] = {0};
 
+    // storing value in temp array
+    for( int i=0 ; i<n ; i++ ){
+        temp[ index[i] ] = arr[i];
+    }
+    
+    // copy value from temp to arr
+    for( int i=0 ; i<n ; i++ ){
+        arr[i] = temp[i] ;
+    } 
+    
+    // printing array
+    for( int i=0 ; i<n ; i++ ){
+        cout << arr[i] << " ";
+    }
+    
+}
 
-
-
-
-
-
+```
