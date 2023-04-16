@@ -10,6 +10,7 @@ int main() {
     int n = sizeof(arr)/sizeof(arr[0]);
     int key = 10;
     
+    // Finding pivot element index
     int mid;
     int l=0 ; int h = n-1;
     while( l <= h ){
@@ -25,7 +26,7 @@ int main() {
                     
     }
     
-   
+    // Check where key exist 
     if( arr[0] <= key && arr[mid-1] >= key ){
         l = 0; h = mid-1;
     }
@@ -34,7 +35,7 @@ int main() {
         l = mid; h = n-1;      
     }
     
-
+    // Finding key using binary search 
     int f = 0;
     while( l <= h ){
         
