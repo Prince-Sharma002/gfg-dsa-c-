@@ -111,6 +111,54 @@ for( int i=0 ; i<n ; i++ ){
 // spaceComplexity - 0(n)
 ```
 
+### Order maintain
+
+```
+	void rearrange(int arr[], int n) {
+        vector<int> posArr;
+        vector<int> negArr;
+	    for( int i=0 ; i<n ; i++ ){
+	        if( arr[i] >= 0 )
+	            posArr.push_back( arr[i] );
+	        else
+	            negArr.push_back( arr[i] );
+	    }
+	    
+	    int i ; int j=0 ; int k=0;
+	    int flag = 0;
+	    for( i=0 ; i<n ; i++ ){
+	        if( j >= posArr.size() || k >= negArr.size() )
+	        {
+	            flag = 1;
+	            break;
+	        }
+	        
+	        if( i%2 == 0){
+	            arr[i] = posArr[j++];
+	        }
+	        else
+	            arr[i] = negArr[k++];
+	        
+	    }
+	    
+	    if( flag  == 1 ){
+	        if( j < posArr.size() ){
+	            while( j < posArr.size() ){
+	                arr[i] = posArr[j]; 
+	                i++; j++;
+	            }
+	        }
+	        else{
+	            while( k < negArr.size() ){
+	                arr[i] = negArr[k]; 
+	                i++; k++;
+	            }	           
+	        }
+	    } 
+	    
+	}
+```
+
 
 
 
