@@ -1,5 +1,38 @@
 # Vertical Traversal of Tree
 
+```
+    //Function to find the vertical order traversal of Binary Tree.
+    vector<int> verticalOrder(Node *root)
+    {
+        map<int, vector<int> > mp;
+        queue< pair < int , Node* > > q;
+        
+        q.push( { 0 , root } );
+        vector<int> res;
+        
+        while( !q.empty() ){
+            pair< int , Node* > temp = q.front();
+            int hd = temp.first;
+            Node* node = temp.second;
+            q.pop();
+            
+            mp[hd].push_back(node->data);
+            if( node ->left )
+                q.push( { hd - 1 , node->left } );
+            if( node->right )
+                q.push( { hd +1 , node->right } );
+        }
+        
+        for( auto it = mp.begin() ; it != mp.end() ; it++ ){
+            vector<int> ans = it->second;
+            for( auto x : ans ){
+                res.push_back( x );
+            }
+            
+        }
+        return res;
+    }
+```
 
 ### using map and recursion traversal
 ```
