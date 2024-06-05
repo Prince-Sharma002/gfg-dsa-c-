@@ -1,20 +1,24 @@
 # Kth largest element in BST
 
 ```
-    void solve( Node* root , vector<int> &ans){
-        if( root == NULL )
+    void solve( Node* root , int K , vector<int> &ans  ){
+        if( !root )
             return ;
         
-        solve( root->left , ans );
+        solve( root->left , K , ans );
         ans.push_back( root->data );
-        solve( root->right , ans );
-        
-        
+        solve( root->right , K , ans );
     }
-    int kthLargest(Node *root, int K)
-    {
+    
+    int KthSmallestElement(Node *root, int K) {
         vector<int> ans;
-        solve( root , ans );
-        return ans[ans.size() - K  ];
+        solve( root , K , ans );
+        
+        if( K > ans.size() )
+            return -1;
+        
+        return ans[  K -1 ];
+        
+        
     }
 ```
