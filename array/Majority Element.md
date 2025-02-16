@@ -34,7 +34,7 @@ int majorityElement(int a[], int size)
 }
 ```
 
-## useing Hashmap
+## using Hashmap
 ```
     int majorityElement(vector<int>& arr) {
         unordered_map<int,int> mp;
