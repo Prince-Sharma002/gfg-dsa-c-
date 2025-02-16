@@ -34,6 +34,24 @@ int majorityElement(int a[], int size)
 }
 ```
 
+## useing Hashmap
+```
+    int majorityElement(vector<int>& arr) {
+        unordered_map<int,int> mp;
+        for( int i=0 ; i<arr.size() ; i++ ){
+            mp[arr[i] ]++;
+        }
+        
+        
+        for( auto i = mp.begin() ; i != mp.end() ; i++  ){
+            if( i->second > arr.size()/2 )
+                return i->first;
+        }
+        
+        return -1;
+    }
+```
+
 
 
 
