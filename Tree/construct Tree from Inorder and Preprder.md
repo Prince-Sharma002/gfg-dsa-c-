@@ -1,4 +1,4 @@
-# Construct Tree from Inorder and Preorer
+# Construct Tree from Inorder and Preorder
 
 ```
 int search(int in[], int key, int s, int e) {
