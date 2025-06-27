@@ -1,0 +1,55 @@
+
+```
+void dfs(int i, vector<bool>& visited, stack<int>& st, vector<vector<int>>& adj) {
+    visited[i] = true;
+    for (auto j : adj[i]) {
+        if (!visited[j])
+            dfs(j, visited, st, adj);
+    }
+    st.push(i);
+}
+
+void dfs2(int i, vector<bool>& visited, vector<vector<int>>& adj) {
+    visited[i] = true;
+    for (auto j : adj[i]) {
+        if (!visited[j])
+            dfs2(j, visited, adj); // corrected recursive call
+    }
+}
+
+int kosaraju(vector<vector<int>>& adj) {
+    int v = adj.size();
+    stack<int> st;
+    vector<bool> visited(v, false);
+
+    // Step 1: Fill the stack with finishing times
+    for (int i = 0; i < v; i++) {
+        if (!visited[i])
+            dfs(i, visited, st, adj);
+    }
+
+    // Step 2: Transpose the graph
+    vector<vector<int>> newarr(v);
+    for (int i = 0; i < v; i++) {
+        for (int j : adj[i]) {
+            newarr[j].push_back(i);
+        }
+    }
+
+    // Step 3: Second DFS on transposed graph
+    fill(visited.begin(), visited.end(), false); // reset visited
+    int ans = 0;
+
+    while (!st.empty()) {
+        int ele = st.top();
+        st.pop();  // fixed
+        if (!visited[ele]) {
+            ans++;
+            dfs2(ele, visited, newarr); // use transposed graph
+        }
+    }
+
+    return ans;
+}
+
+```
