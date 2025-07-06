@@ -1,4 +1,11 @@
 ```
+Input: n = 4
+Output: [[2 4 1 3 ] [3 1 4 2 ]]
+Explaination: There are 2 possible solutions for n = 4.
+```
+
+
+```
 bool issafe(int row, int col, vector<vector<char>>& board) {
     int r = row, c = col;
 
